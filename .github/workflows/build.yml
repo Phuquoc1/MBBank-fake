@@ -32,7 +32,6 @@ jobs:
           -configuration Release \
           -derivedDataPath build \
           -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPhone 14' \
           CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
     - name: Package simulator app
