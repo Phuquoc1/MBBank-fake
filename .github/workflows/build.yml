@@ -13,20 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Select Xcode version
-      run: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-    
-    - name: Build IPA
+    - name: Build (use .xcodeproj)
       run: |
-        xcodebuild -workspace "MB Bank.xcworkspace" \
+        set -e
+        echo "Building project using xcodebuild (project mode)"
+        xcodebuild -project "MB Bank.xcodeproj" \
           -scheme "MB Bank" \
           -configuration Release \
           -derivedDataPath build \
-          -arch arm64 \
-          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
     
     - name: Upload IPA
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MB-Bank-IPA
         path: build/Build/Products/Release-iphoneos/
