@@ -34,3 +34,10 @@ jobs:
         name: build-log
         path: build.log
 
+    - name: Upload app
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: MB-Bank-App
+        path: build/Build/Products/Release-iphonesimulator/MB\ Bank.app
+
