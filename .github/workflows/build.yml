@@ -1,0 +1,32 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Select Xcode version
+      run: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+    
+    - name: Build IPA
+      run: |
+        xcodebuild -workspace "MB Bank.xcworkspace" \
+          -scheme "MB Bank" \
+          -configuration Release \
+          -derivedDataPath build \
+          -arch arm64 \
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    
+    - name: Upload IPA
+      uses: actions/upload-artifact@v3
+      with:
+        name: MB-Bank-IPA
+        path: build/Build/Products/Release-iphoneos/
