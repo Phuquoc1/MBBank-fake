@@ -28,7 +28,7 @@ jobs:
         set -e
         echo "Building project for iOS Simulator to avoid code signing errors"
         xcodebuild -project "MB Bank.xcodeproj" \
-          -scheme "MB Bank" \
+          -target "MB Bank" \
           -configuration Release \
           -derivedDataPath build \
           -sdk iphonesimulator \
