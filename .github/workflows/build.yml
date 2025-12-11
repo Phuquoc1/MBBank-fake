@@ -13,18 +13,35 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Build (use .xcodeproj)
+    - name: Build (use .xcodeproj for Simulator)
       run: |
         set -e
-        echo "Building project using xcodebuild (project mode)"
+        echo "Building project for iOS Simulator to avoid code signing errors"
         xcodebuild -project "MB Bank.xcodeproj" \
           -scheme "MB Bank" \
           -configuration Release \
           -derivedDataPath build \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 14' \
           CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-    
-    - name: Upload IPA
+
+    - name: Package simulator app
+      run: |
+        set -e
+        mkdir -p output
+        APP_PATH="build/Build/Products/Release-iphonesimulator/MB Bank.app"
+        if [ -d "$APP_PATH" ]; then
+          cp -R "$APP_PATH" output/
+          cd output
+          zip -r "MB-Bank-simulator.zip" "MB Bank.app"
+        else
+          echo "Error: built app not found at $APP_PATH"
+          ls -la build/Build/Products || true
+          exit 1
+        fi
+
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: MB-Bank-IPA
-        path: build/Build/Products/Release-iphoneos/
+        name: MB-Bank-Simulator-App
+        path: output/MB-Bank-simulator.zip
