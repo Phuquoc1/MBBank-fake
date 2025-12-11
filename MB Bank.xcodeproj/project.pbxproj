@@ -16,6 +16,10 @@
 		0AA1BDC82C1AD95500F9B082 /* MB_BankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDC72C1AD95500F9B082 /* MB_BankTests.swift */; };
 		0AA1BDD22C1AD95500F9B082 /* MB_BankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDD12C1AD95500F9B082 /* MB_BankUITests.swift */; };
 		0AA1BDD42C1AD95500F9B082 /* MB_BankUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDD32C1AD95500F9B082 /* MB_BankUITestsLaunchTests.swift */; };
+		0AA1BDE52C1ADB1200F9B082 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDE42C1ADB1200F9B082 /* LoginViewController.swift */; };
+		0AA1BDE72C1ADB1800F9B082 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDE62C1ADB1800F9B082 /* TransferViewController.swift */; };
+		0AA1BDE92C1ADB2000F9B082 /* BalanceManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDE82C1ADB2000F9B082 /* BalanceManagementViewController.swift */; };
+		0AA1BDEB2C1ADB2800F9B082 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1BDEA2C1ADB2800F9B082 /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		0AA1BDCD2C1AD95500F9B082 /* MB BankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MB BankUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA1BDD12C1AD95500F9B082 /* MB_BankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MB_BankUITests.swift; sourceTree = "<group>"; };
 		0AA1BDD32C1AD95500F9B082 /* MB_BankUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MB_BankUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0AA1BDE42C1ADB1200F9B082 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AA1BDE62C1ADB1800F9B082 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		0AA1BDE82C1ADB2000F9B082 /* BalanceManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceManagementViewController.swift; sourceTree = "<group>"; };
+		0AA1BDEA2C1ADB2800F9B082 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				0AA1BDB02C1AD95100F9B082 /* AppDelegate.swift */,
 				0AA1BDB22C1AD95100F9B082 /* SceneDelegate.swift */,
 				0AA1BDB42C1AD95100F9B082 /* ViewController.swift */,
+				0AA1BDE42C1ADB1200F9B082 /* LoginViewController.swift */,
+				0AA1BDE62C1ADB1800F9B082 /* TransferViewController.swift */,
+				0AA1BDE82C1ADB2000F9B082 /* BalanceManagementViewController.swift */,
+				0AA1BDEA2C1ADB2800F9B082 /* AccountViewController.swift */,
 				0AA1BDB62C1AD95100F9B082 /* Main.storyboard */,
 				0AA1BDB92C1AD95400F9B082 /* Assets.xcassets */,
 				0AA1BDBB2C1AD95400F9B082 /* LaunchScreen.storyboard */,
@@ -261,6 +273,10 @@
 				0AA1BDB52C1AD95100F9B082 /* ViewController.swift in Sources */,
 				0AA1BDB12C1AD95100F9B082 /* AppDelegate.swift in Sources */,
 				0AA1BDB32C1AD95100F9B082 /* SceneDelegate.swift in Sources */,
+				0AA1BDE52C1ADB1200F9B082 /* LoginViewController.swift in Sources */,
+				0AA1BDE72C1ADB1800F9B082 /* TransferViewController.swift in Sources */,
+				0AA1BDE92C1ADB2000F9B082 /* BalanceManagementViewController.swift in Sources */,
+				0AA1BDEB2C1ADB2800F9B082 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
