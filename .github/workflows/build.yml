@@ -13,19 +13,30 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Build app
+    - name: Build app archive
       run: |
         set -x
         xcodebuild -project "MB Bank.xcodeproj" \
           -scheme "MB Bank" \
           -configuration Release \
           -derivedDataPath build \
-          -sdk iphonesimulator \
+          -archivePath build/MB\ Bank.xcarchive \
+          archive \
           2>&1 | tee build.log
         
-        echo "=== Build completed, checking output ==="
-        ls -la build/Build/Products/Release-iphonesimulator/ || echo "No Release-iphonesimulator found"
-        find build -name "*.app" -type d 2>/dev/null || echo "No .app found"
+        echo "=== Archive completed, checking output ==="
+        ls -la build/ || echo "Build folder empty"
+    
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+          -archivePath build/MB\ Bank.xcarchive \
+          -exportOptionsPlist ExportOptions.plist \
+          -exportPath build/ipa \
+          2>&1 | tee -a build.log
+        
+        echo "=== IPA export completed ==="
+        ls -la build/ipa/ || echo "IPA folder empty"
     
     - name: Upload build log
       if: always()
@@ -38,6 +49,6 @@ jobs:
       if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: MB-Bank-App
-        path: build/Build/Products/Release-iphonesimulator/MB\ Bank.app
+        name: MB-Bank-IPA
+        path: build/ipa/MB\ Bank.ipa
 
