@@ -13,6 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Debug: Xcode, schemes and simulators
+      run: |
+        set -e
+        echo "Xcode version and path"
+        xcodebuild -version
+        echo "List projects/schemes"
+        xcodebuild -project "MB Bank.xcodeproj" -list || true
+        echo "List simulator devices (short)"
+        xcrun simctl list devices --short | sed -n '1,200p' || true
+
     - name: Build (use .xcodeproj for Simulator)
       run: |
         set -e
